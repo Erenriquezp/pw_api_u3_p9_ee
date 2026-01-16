@@ -1,0 +1,11 @@
+Arquitectura microservicios
+
+Domain driven design - Metodología: el software debe dividirse por dominios funcionales
+
+Estructuracion:
+- Domain: capa donde se mapean las entidades
+- Infraestructure: capa de acceso a los datos (se conecta con la base de datos)
+- Application: capa donde reside la logica de negocio
+- Interfaces: capa donde reside el controlador o acceso a los recursos (path)
+
+Cada capa debe ser representada como paquete
