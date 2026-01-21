@@ -16,10 +16,11 @@ import jakarta.persistence.Table;
 public class Estudiante extends PanacheEntityBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estudiante_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estudiante_sec")
     public Integer id;
     public String nombre;
     public String apellido;
     public LocalDateTime fechaNacimiento;
-
+    public String provincia;
+    public String genero;
 }
