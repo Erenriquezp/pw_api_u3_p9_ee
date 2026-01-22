@@ -1,3 +1,27 @@
+Una api es un contrato (definiciones, especificaciones, entradas, salidas, protocolos) que se define para que 
+dos o mas componentes tecnologicos interactuen entre si o se intregren entre si, o se comuniquen entre si, 
+Una API encapsula toda su lógica que implementa para cumplir con estos contratos, define el qué no el cómo
+
+Por su estilo arquitectónico existen las siguiente categorías:
+- RESTful -> implementación del estilo arquitectónico (principios de diseño) REST (Representationl State Transfer), estándar JSON 
+- SOAP -> Basadas en XML, esquemas rígidos
+- GRPC -> API de comunicación basado en http/2, eficiente para el backend interno
+- Asincronas -> Se manejan con mensajerías o colas, no necesariamente son web, basadas en eventos, desacoplamiento entre los componentes
+- GRApHQL -> Es un lenguaje de consulta para APIs donde el cliente define lo que necesita.
+
+Princpios Calve RESTful
+1. Recursos: Todo objetos con el trabajamos es un recurso, Como una Entidad en JPA
+2. Cliente Servidor: 
+3. Sin Estado: Stateless, no guarda el estado para la siguiente pregunta, cada petición es independiente
+4. Uso correcto de http: Métodos http GET (consultas), POST (insertar), PUT (actualizar), PATCH (actualizar parcialmente un recuso), DELETE (eliminar)
+5. Representaciones: cuando utilizo una capacidad de mi api para crear un recurso, se debe enviar el objeto, es una representacion del objeto, no se tabaja con el objeto real
+6. Códigos de Estado: cuando se consume una api se obtiene una respuesta, 
+7. Cacheable: la api puede manejar información volatil, osea información guardada en el caché
+8. Por capas: Capas correctamente estructurada --- Acceso a Datos, Lógica de Negocios, Controlador.
+
+Micro Profile: es un conjunto de especificaciones para la construcción de APIS Web basadas en java y orientadas para microservicios.
+Quarkus, como implementación de microprofile -> consume menos cpu y memoria por que compila y optimiza al SO con lenguaje nativo.
+
 Arquitectura microservicios
 
 Domain driven design - Metodología: el software debe dividirse por dominios funcionales
@@ -9,3 +33,25 @@ Estructuracion:
 - Interfaces: capa donde reside el controlador o acceso a los recursos (path)
 
 Cada capa debe ser representada como paquete
+
+-------------------------------------------------------------------------------
+
+Modelo de Madurez de Richardson: mejorar la calidad en la construccion de APIs
+    Modelo que permite clasificar la madurez de una API REST y existen 4 niveles:
+        -Nivel 0: debe trabajar con el modelo HTTP/HTTPS 
+        -Nivel 1: maneja todo como un recurso (Recurso -> URI) y las URIs deben ser autodescriptivas
+        Nomenclatura: URL = http://localhost:8080/(nombre relacionado) matricula/api/v1.0/(nombre del recurso en plural) estudiantes
+        
+        versiones maximo 2 digitos, es lo mas optimo
+        1.1.2
+        cambios mayores-cambios minimos-errores
+        
+        Verbos: el verbo es autodescriptivo, pude existir un mismo endpoint pero con diferente verbo
+        .../estudiantes         GET
+        .../estudiantes/{id}    GET
+        .../estudiantes/{id}    DELETE 
+        .../estudiantes/{id}    PATCH   Body  
+        .../estudiantes         POST    Body (para 1 o varios objetos)
+        .../estudiantes/{id}    PUT     Body
+
+        -
