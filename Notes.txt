@@ -54,4 +54,38 @@ Modelo de Madurez de Richardson: mejorar la calidad en la construccion de APIs
         .../estudiantes         POST    Body (para 1 o varios objetos)
         .../estudiantes/{id}    PUT     Body
 
-        -
+        - Nivel 2, Se compone por 3 elementos: 
+            1. Uso correcto de verbos o metodos http (Podemos usar POST para hacer consultar, pero es incorrecto) 
+            2. Uso correcto de codigos de estado - Los codigos: son respuestas al realizar un petición http dependen del metodo de peticion utilizado
+            3. Tipo o formato correcto y explícito del contenidto del body que viaja en el request o response, el formato debe ser definido explicitamente tanto en el request como en el response. (consumes y produces)
+
+            - Manejo de códigos de estado: 5 Grupos 
+                1. Respuestas informativas: rango destinado 100 - 199 (100-1xx): No necesariamente hubo un error o exito, me da informacion relevante "El sistema estara disponible el lunes...."
+                2. Respuestas satisfactorias: rango destinado (200-2xx): Todo fue bien en el consumo de la api "Transaccion exitosa"
+                3. Mensajes de redirección: 300-3xx: Menos comun, cuando hay un cambio en el endpoint de la api, proceso de transicion en versiones, no siempre se da de baja a la version anterior
+                4. Mensajes de error en el cliente: 400-4xx: El navegador es el cliente generalmente, puede ser postman
+                5. Errores de servidor: 500-5xx: El que provee el servicio, puede ser Quarkus
+                
+                Existen codigos reservados y codigos que podemos personalizar
+                
+                Codigos estandar:
+                    1. 100.- destinado para informar que todo esta correcto pero aun se continua procesando la solicitud
+                    2. 102.- indica que el servidor a resivido la solicitud, que todavia esta procesando pero aun no hay una respuesta definida
+                
+                    3. 200.- el request ha tenido éxito, que todo ha salido bien el la peticion, suele englobar todos las peticiones de acuerdo a todos los verbos
+                    4. 201.- indica que se ha creado un nuevo recurso de manera exitosa, es decir con el verbo POST
+                    5. 204.- la peticion fue procesada correctamente pero no hay respuesta (sin return)
+
+                    6. 400.- BAD REQUEST, indica que hubo un error de sintaxis o está mal estructurada la peticion
+                    7. 401.- UNAUTHORIZED, error en la autenticacion
+                    8. 403.- No está autorizado para consimir la api
+                    9. 404.- Se hizo una petición a algo que no existe, resource not found, url incorrecta
+                    10. 405.- Method Not Allowed, Método no permitido, verbo incorrecto
+                    11. 408.- REQUEST TIMEOUT, la petición se desconectó por tiempo excedido 
+                    12. 415.- Unsupported Media Type, tipo de contenido del body tiene formato incorrecto
+
+                    13. 500.- Internal Server Error, cualquier error de la API (en el codigo fuente)
+                    14. 503.- Servicio no disponible, el servidor no está listo para recibir la petición todavía
+        
+            Richardson.- Use los codigos no reservados correctamente: https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status
+

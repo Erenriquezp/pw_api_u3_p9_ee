@@ -10,7 +10,9 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import uce.edu.web.api.matricula.application.EstudianteService;
 import uce.edu.web.api.matricula.domain.Estudiante;
@@ -23,7 +25,8 @@ public class EstudianteResource {
 
     @GET
     @Path("")
-    public List<Estudiante> listarTodos() {
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Estudiante> listarTodos() { // Produce informacion
         System.out.println("Listar Todos xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         return this.estudianteService.listarTodos();
     }
@@ -37,6 +40,7 @@ public class EstudianteResource {
 
     @GET
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_XML)
     public Estudiante consultarPorId(@PathParam("id") Integer id) {
         return this.estudianteService.consultarPorId(id);
     }
