@@ -89,3 +89,13 @@ Modelo de Madurez de Richardson: mejorar la calidad en la construccion de APIs
         
             Richardson.- Use los codigos no reservados correctamente: https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status
 
+-------------------------------------------------------------------------------------------------------------
+
+Siempre poner el produces, consumes o ambos explicitamente
+Se puede poner a nivel de clase, pero es mejor poner a nivel del metodo
+
+        - Nivel 3: HATEOAS (Hypermedia As The Engine Of Application State)
+            - Es ineficiente traer demasiada información en una sola petición, (informacion del hijo de un estudiante)
+            - Consiste en que la API devuelva en la respuesta enlaces (links) a otros recursos (endpoints) relacionados con el recurso solicitado
+                se debe incluir en el resource padre
+            - No debemos exponer directamente las entidades en el resource, debemos usar otro objeto
