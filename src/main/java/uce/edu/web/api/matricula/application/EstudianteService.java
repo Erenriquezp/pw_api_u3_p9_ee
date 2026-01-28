@@ -18,13 +18,13 @@ public class EstudianteService {
 
     public List<EstudianteRepresentation> listarTodos() {
         List<EstudianteRepresentation> estudiantes = new ArrayList<>();
-        for (Estudiante est :  this.estudianteRepository.listAll()) {
+        for (Estudiante est : this.estudianteRepository.listAll()) {
             estudiantes.add(this.mapper(est));
         }
         return estudiantes;
     }
 
-    public  EstudianteRepresentation consultarPorId(Integer id) {
+    public EstudianteRepresentation consultarPorId(Integer id) {
         return this.mapper(this.estudianteRepository.findById(id.longValue()));
     }
 
@@ -52,7 +52,7 @@ public class EstudianteService {
             estu.apellido = est.apellido;
         }
         if (est.fechaNacimiento != null) {
-            estu.fechaNacimiento = est.fechaNacimiento;   
+            estu.fechaNacimiento = est.fechaNacimiento;
         }
         // Se actualiza automaticamente por dirty checking
     }
@@ -63,9 +63,16 @@ public class EstudianteService {
     }
 
     public List<Estudiante> buscarPorProvincia(String provincia, String genero) {
-        //return this.estudianteRepository.find("provincia", provincia).list();
+        // return this.estudianteRepository.find("provincia", provincia).list();
         return this.estudianteRepository.find("provincia = ?1 and genero = ?2", provincia, genero).list();
+    }
 
+    public List<EstudianteRepresentation> buscarPorProvinciaMapped(String provincia, String genero) {
+        List<EstudianteRepresentation> estudiantes = new ArrayList<>();
+        for (Estudiante est : this.buscarPorProvincia(provincia, genero)) {
+            estudiantes.add(this.mapper(est));
+        }
+        return estudiantes;
     }
 
     private EstudianteRepresentation mapper(Estudiante est) {
