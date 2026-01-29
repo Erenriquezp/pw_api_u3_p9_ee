@@ -96,6 +96,6 @@ Se puede poner a nivel de clase, pero es mejor poner a nivel del metodo
 
         - Nivel 3: HATEOAS (Hypermedia As The Engine Of Application State)
             - Es ineficiente traer demasiada información en una sola petición, (informacion del hijo de un estudiante)
-            - Consiste en que la API devuelva en la respuesta enlaces (links) a otros recursos (endpoints) relacionados con el recurso solicitado
+            1. No debemos exponer directamente las entidades en el resource, debemos usar otro objeto
+            2. Consiste en que la API devuelva en la respuesta enlaces (links) a otros recursos (endpoints) relacionados con el recurso solicitado
                 se debe incluir en el resource padre
-            - No debemos exponer directamente las entidades en el resource, debemos usar otro objeto
