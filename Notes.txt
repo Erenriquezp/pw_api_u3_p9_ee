@@ -99,3 +99,24 @@ Se puede poner a nivel de clase, pero es mejor poner a nivel del metodo
             1. No debemos exponer directamente las entidades en el resource, debemos usar otro objeto
             2. Consiste en que la API devuelva en la respuesta enlaces (links) a otros recursos (endpoints) relacionados con el recurso solicitado
                 se debe incluir en el resource padre
+
+
+------------------------------------------------------------------------------------------------------------------
+Autenticacion y Autorizacion
+- Autenticacion: proceso de verificar la identidad de un usuario o sistema (quien eres), probar que soy quien digo ser 
+    Mecanismo 1. mediante credenciales que yo se (usuario y contraseña)
+    Mecanismo 2. algo que yo tengo (token, otp, certificado digital)
+    Mecanismo 3. algo que yo soy (biometria: huella digital, reconocimiento facial)
+
+- Autorizacion: proceso de verificar si un usuario o sistema tiene permisos para acceder a un recurso o realizar una acción específica (que puedes hacer)
+    A que recursos puedo acceder y que acciones puedo realizar en esos recursos
+    Se da despues de la autenticacion
+    Llave privada y llave publica, a partir de la llave privada se genera un certificado digital (llave publica)
+    - OAuth2.0: protocolo de autorizacion basado en una autenticaion previa, autorization server (API proveedor de autorizacion para poder consumir otras APIs)
+
+    El cliente pide autorizacion al authorization server, si es correcto, el authorization server le da un token de acceso (access token) al cliente
+    El cliente usa el access token (basado en json: JWT - JSON Web Token) para consumir la API protegida (resource server)
+
+    Openssl es una herramienta para generar certificados digitales y llaves criptograficas
+    Comando 1: openssl genpkey -algorithm RSA -out privateKey.pem -pkeyopt rsa_keygen_bits:2048
+    Comando 2: openssl rsa -pubout -in privateKey.pem -out publicKey.pem
