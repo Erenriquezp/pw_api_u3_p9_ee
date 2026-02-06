@@ -121,13 +121,29 @@ Autenticacion y Autorizacion
     Comando 1: openssl genpkey -algorithm RSA -out privateKey.pem -pkeyopt rsa_keygen_bits:2048
     Comando 2: openssl rsa -pubout -in privateKey.pem -out publicKey.pem
 
-    ------------------------------------------------------------------------
+------------------------------------------------------------------------
     Autorizacion en paginas web - Protegar las rutas
     - En VUE conocidos como guards - guardianes de rutas
 
     - Abrir vue e indicar en ciertas paginas
 
-    ---------------------------------------------------------------------
-    Trabajo Grupal Final
-    Realizar una app de gestión de citas medicas, donde las funcionalidades son login, 
-    crud de doctor, crud de paciente, reporte de doctores (lista-buscar todos), reporte de pacinetes y crear y cancelar citas
+---------------------------------------------------------------------
+Trabajo Grupal Final
+Realizar una app de gestión de citas medicas, donde las funcionalidades son login, 
+crud de doctor, crud de paciente, reporte de doctores (lista-buscar todos, muestra todos los campos), 
+reporte de pacientes y crear - cancelar citas (cambiar de estado - activo, inactivo)
+
+    
+Presentación Viernes, 10 puntos funcionalidad, 10 puntos defensa - cambios
+
+Normas
+De 5 a 7 atributos
+Sin roles, un solo usuario
+Seguridad con JWT
+Manejo de estilos presentables
+3 proyectos - 3 repositorios, VUE, API, AUTH SERVER
+Menu de navegación, router
+Mensajes informativos en cada operacion
+Todo lo aprendido en clases
+
+Evidencias pdf, Subir todas la capturas del proyecto final funcionando, del front
