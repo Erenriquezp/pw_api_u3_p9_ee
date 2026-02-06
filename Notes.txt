@@ -120,3 +120,14 @@ Autenticacion y Autorizacion
     Openssl es una herramienta para generar certificados digitales y llaves criptograficas
     Comando 1: openssl genpkey -algorithm RSA -out privateKey.pem -pkeyopt rsa_keygen_bits:2048
     Comando 2: openssl rsa -pubout -in privateKey.pem -out publicKey.pem
+
+    ------------------------------------------------------------------------
+    Autorizacion en paginas web - Protegar las rutas
+    - En VUE conocidos como guards - guardianes de rutas
+
+    - Abrir vue e indicar en ciertas paginas
+
+    ---------------------------------------------------------------------
+    Trabajo Grupal Final
+    Realizar una app de gestión de citas medicas, donde las funcionalidades son login, 
+    crud de doctor, crud de paciente, reporte de doctores (lista-buscar todos), reporte de pacinetes y crear y cancelar citas
